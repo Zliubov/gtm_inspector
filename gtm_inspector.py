@@ -53,6 +53,7 @@ if uploaded_file:
 
             trig_name = trigger.get('name', '')
             trig_type = trigger.get('type', '')
+            tag_paused = tag.get('paused', False)
             filters = trigger.get('filter', []) + trigger.get('customEventFilter', [])
             flat_filters = [format_filter(f) for f in filters]
 
@@ -71,6 +72,7 @@ if uploaded_file:
         rows.append({
             "Tag Name": tag_name,
             "Type": tag_type,
+            "Tag Paused": tag_paused,
             "Triggers": "\n".join(trigger_info_list),
             "Trigger.Name": first_trigger_name,
             "Trigger.Type": first_trigger_type,
